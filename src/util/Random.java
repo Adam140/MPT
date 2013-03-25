@@ -2,6 +2,12 @@ package util;
 
 public class Random {
 
+	/**
+	 * Randomize some integral in the range of <a;b>
+	 * @param a min value
+	 * @param b max value
+	 * @return random integer
+	 */
 	public static int randInt(int a, int b)
 	{
 		int result = 0;
@@ -9,6 +15,13 @@ public class Random {
 		return result;
 	}
 	
+	/**
+	 * Create array of integral, filled with random number
+	 * @param size length of array
+	 * @param a min value
+	 * @param b max value
+	 * @return int[size]
+	 */
 	public static int[] randArrayInt(int size, int a, int b)
 	{
 		int[] result = new int[size];
