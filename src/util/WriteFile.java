@@ -23,9 +23,10 @@ public class WriteFile {
 
 		try {
 			if (fstream == null || out == null) {
-				fstream = new FileWriter(file);
+				fstream = new FileWriter(file.getAbsolutePath());
 				out = new BufferedWriter(fstream);
 			}
+			out.flush();
 			out.write(buffer);
 		} catch (IOException e) {
 			e.printStackTrace();

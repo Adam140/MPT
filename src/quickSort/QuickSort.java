@@ -7,40 +7,54 @@ public class QuickSort {
 	
 	private void quickSort(int left, int right)
 	{
-		count++;
-		int l = left, r = right;
-	    // Get the pivot element from the middle of the list
-	    int pivot = table[left + (right-left)/2];
+		 int l = left;                          // index of left-to-right scan
+	        int r = right;                            // index of right-to-left scan
 
-	    // Divide into two lists
-	    while (l <= r) {
-	      // If the current value from the left list is smaller then the pivot
-	      // element then get the next element from the left list
-	      while (table[l] < pivot) {
-	        l++;
-	      }
-	      // If the current value from the right list is larger then the pivot
-	      // element then get the next element from the right list
-	      while (table[r] > pivot) {
-	        r--;
-	      }
+	        if (right - left >= 1)                   // check that there are at least two elements to sort
+	        {
+	                int pivot = table[left];       // set the pivot as the first element in the partition
 
-	      // If we have found a values in the left list which is larger then
-	      // the pivot element and if we have found a value in the right list
-	      // which is smaller then the pivot element then we exchange the
-	      // values.
-	      // As we are done we can increase i and j
-	      if (l <= r) {
-	        swap(l, r);
-	        l++;
-	        r--;
-	      }
-	    }
-	    // Recursion
-	    if (left < r)
-	      quickSort(left, r);
-	    if (l < right)
-	      quickSort(l, right);
+	                while (r > l)                   // while the scan indices from left and right have not met,
+	                {
+	                        while (table[l] <= pivot && l <= right && r > l)  // from the left, look for the first
+	                                l++;                                    // element greater than the pivot
+	                        while (table[r] > pivot && r >= left && r >= l) // from the right, look for the first
+	                            r--;                                        // element not greater than the pivot
+	                        if (r > l)                                       // if the left seekindex is still smaller than
+	                                swap(l, r);                      // the right index, swap the corresponding elements
+	                }
+	                swap(left, r);          // after the indices have crossed, swap the last element in
+	                                                // the left partition with the pivot 
+	                quickSort(left, r - 1); // quicksort the left partition
+	                quickSort(r + 1, right);   // quicksort the right partition
+	        }
+	        else    // if there is only one element in the partition, do not do any sorting
+	        {
+	                return;                     // the array is sorted, so exit
+	        }
+//		count++;
+//		int l = left, r = right;
+//	    int pivot = table[left + (right-left)/2];
+//
+//	    while (l <= r) {
+//	      
+//	    	while (table[l] < pivot) {
+//	        l++;
+//	      }
+//	      while (table[r] > pivot) {
+//	        r--;
+//	      }
+//
+//	      if (l <= r) {
+//	        swap(l, r);
+//	        l++;
+//	        r--;
+//	      }
+//	    }
+//	    if (left < r)
+//	      quickSort(left, r);
+//	    if (l < right)
+//	      quickSort(l, right);
 //	    
 //		int pivot, temp;
 //		
