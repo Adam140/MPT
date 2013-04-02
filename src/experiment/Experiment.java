@@ -2,7 +2,6 @@ package experiment;
 
 import java.util.Arrays;
 
-import quickSort.QuickSort2;
 import quickSort.QuickSortFacade;
 import util.Random;
 import util.WriteFile;
