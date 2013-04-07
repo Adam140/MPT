@@ -60,15 +60,16 @@ public class Experiment {
 				else {
 					buffer = Integer.toString(i) + " " + algorithm.getTime()
 							+ "\n";
-					System.out.println("size: " + i + " time: "
-							+ algorithm.getTime());
+					if(PRINT_RESULT)
+						System.out.println("size: " + i + " time: "	+ algorithm.getTime());
 					wf.writeString(buffer);
 				}
 
 			}
 			if (AVERAGE) {
 				buffer = Integer.toString(i) + " " + avg(avg) + "\n";
-				System.out.println("size: " + i + " time: "	+ avg(avg));
+				if(PRINT_RESULT)
+					System.out.println("size: " + i + " time: "	+ avg(avg));
 				wf.writeString(buffer);
 			}
 
