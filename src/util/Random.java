@@ -34,4 +34,31 @@ public class Random {
 		return result;
 	}
 
+	/**
+	 * Create 2-D array of integral for second task, it's a array of cost.
+	 * If n was lowest then two then n would be random. 
+	 * @param n number of rental posts
+	 * @return Double[n][n]
+	 */
+	public static Double[][] randCostArray(int n)
+	{
+		n = n < 2 ? randInt(5,1000):n;
+		Double[][] array = new Double[n][n];
+		
+		for(int i = 0; i < n; i++)
+		{
+			for(int j = 0; j < n; j++)
+			{
+				if( j > i)
+					array[i][j] = (double) randInt(1, 100);
+				else if( i == j)
+					array[i][j] = 0.0;
+				else
+					array[i][j] = Double.POSITIVE_INFINITY;
+					
+					
+			}
+		}
+		return array;
+	}
 }

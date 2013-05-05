@@ -9,8 +9,8 @@ import task2.Main;
 
 public class ReadFile {
 
-	public static int[][] fillArrayFromFile(String file) {
-		int[][] array = null;
+	public static Double[][] fillArrayFromFile(String file) {
+		Double[][] array = null;
 		try {
 			// Open the file that is the first
 			// command line parameter
@@ -35,9 +35,9 @@ public class ReadFile {
 					
 					for(int j = 0; j < split.length; j++)
 					{
-						array[i-1][j] = Integer.parseInt(split[j].replaceAll("\\s",""));
-						if(array[i-1][j] == -1)
-							array[i-1][j] = 1000;
+						array[i-1][j] = Double.valueOf(split[j].replaceAll("\\s",""));
+//						if(array[i-1][j] == -1)
+//							array[i-1][j] = Double.POSITIVE_INFINITY;
 							
 					}
 							
