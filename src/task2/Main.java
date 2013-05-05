@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.apache.commons.lang.time.StopWatch;
+
 import util.ReadFile;
 import util.WriteFile;
 
@@ -92,7 +94,7 @@ public class Main {
 		Double[][] D;
 		Double[][] P = new Double[N][N];
 
-		D = FloydWarshall.shortestpath(firstD, P);
+		D = FloydWarshall.shortestpath(firstD, P, new StopWatch());
 			
 		System.out.println("Matrix of shortest cost");
 		printArray(D);

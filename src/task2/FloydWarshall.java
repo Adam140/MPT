@@ -1,8 +1,10 @@
 package task2;
 
+import org.apache.commons.lang.time.StopWatch;
+
 public class FloydWarshall {
 
-	public static Double[][] shortestpath(Double[][] D, Double[][] P) {
+	public static Double[][] shortestpath(Double[][] D, Double[][] P, StopWatch sw) {
 
 		int N = D.length;
 		// Initialize with the previous vertex for each edge. -1 indicates
@@ -27,7 +29,8 @@ public class FloydWarshall {
     	Double[][] ans = new Double[N][N];
     
     	ans = D.clone();
-
+    	
+    	sw.start();
     	// Compute successively better paths through vertex k.
     	for (int k=0; k<N;k++) {
 
@@ -42,6 +45,7 @@ public class FloydWarshall {
       		}
     	}
     
+    	sw.stop();
 		for (int i = 0; i < N; i++)
 			for(int j = 0; j < N; j++)
 			{
